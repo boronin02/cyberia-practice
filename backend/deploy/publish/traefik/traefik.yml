@@ -1,0 +1,17 @@
+api:
+  insecure: true
+
+entryPoints:
+  fpm:
+    forwardedHeaders:
+      insecure: true
+    address: ":80"
+  mysql:
+    address: ":3306"
+
+providers:
+  file:
+    filename: "/etc/traefik/dynamic.yml"
+  docker:
+    exposedByDefault: false
+    network: "main"

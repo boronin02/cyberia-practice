@@ -1,0 +1,89 @@
+services:
+
+    # TRAEFIK
+    traefik:
+        image: traefik:v2.10
+        restart: always
+        ports:
+            - "${DEPLOYMENT_PROXY_PORT:-8000}:80"
+            - "${DEPLOYMENT_MYSQL_PORT:-3306}:3306"
+        volumes:
+            - ./deploy/publish/traefik:/etc/traefik
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+        networks:
+            - main
+
+    # FPM
+    fpm:
+        build:
+            args:
+                xdebug_enabled: ${XDEBUG_ENABLED:-false}
+            context: .
+            dockerfile: "deploy/build/fpm/Dockerfile"
+            target: "local"
+        image: "${REGISTRY_URL:-}fpm:${APP_ENV:-development}"
+        restart: always
+        depends_on:
+            mysql:
+                condition: service_healthy
+        volumes:
+            - './deploy/build/fpm/docker-entrypoint.d/:/docker-entrypoint.d/'
+            - './:/var/www'
+        networks:
+            - main
+        environment:
+            PHP_IDE_CONFIG: serverName=fpm
+
+    # MYSQL
+    mysql:
+        image: mysql:8.0.29
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ROOT_HOST: "%"
+            MYSQL_DATABASE: '${DB_DATABASE}'
+            MYSQL_USER: '${DB_USERNAME}'
+            MYSQL_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        volumes:
+            - 'mysql:/var/lib/mysql'
+            - './deploy/publish/mysql/create-testing-database.sql:/docker-entrypoint-initdb.d/10-create-testing-database.sql'
+        healthcheck:
+            test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p$$MYSQL_ROOT_PASSWORD" ]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+        networks:
+            - main
+
+    # REDIS
+    redis:
+        image: 'redis:8-alpine'
+        restart: always
+        command: [
+            "redis-server",
+            "--appendonly",
+            "yes",
+            "--replica-read-only",
+            "no"
+        ]
+        volumes:
+            - 'redis-data:/data'
+        networks:
+            - main
+
+    # SHARED SETTINGS
+networks:
+    main:
+        driver: bridge
+volumes:
+    mysql:
+        driver: local
+    storage:
+        driver: local
+    redis-data:
+        driver: local
+
+
