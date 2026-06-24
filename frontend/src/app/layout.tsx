@@ -1,4 +1,5 @@
 import { Unbounded, Wix_Madefor_Text } from "next/font/google";
+import "./reset.css";
 import "./global.css";
 
 const unbounded = Unbounded({
