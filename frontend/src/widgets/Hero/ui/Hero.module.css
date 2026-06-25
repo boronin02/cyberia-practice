@@ -1,4 +1,5 @@
 .hero {
+  margin-bottom: 20px;
   width: 1324px;
   height: 398px;
   border-radius: 24px;
@@ -135,6 +136,7 @@
 }
 
 .logos {
+  margin-bottom: 120px;
   display: flex;
   flex-direction: row;
   gap: 68px;
