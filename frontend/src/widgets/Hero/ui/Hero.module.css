@@ -9,6 +9,33 @@
   z-index: 0;
 }
 
+.logosWrapper {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.track {
+  padding-right: 68px;
+  margin-bottom: 120px;
+  display: flex;
+  align-items: center;
+  gap: 68px;
+  flex-shrink: 0;
+
+  animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 .content {
   padding: 21px 76px 0 120px;
   position: relative;
@@ -133,11 +160,4 @@
   top: 0;
   left: 468px;
   z-index: -1;
-}
-
-.logos {
-  margin-bottom: 120px;
-  display: flex;
-  flex-direction: row;
-  gap: 68px;
 }
