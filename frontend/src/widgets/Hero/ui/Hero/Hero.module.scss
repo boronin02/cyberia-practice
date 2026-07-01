@@ -1,0 +1,135 @@
+.hero {
+  margin-bottom: 20px;
+  max-width: 1324px;
+  height: 398px;
+  border-radius: 24px;
+  background-color: #2d41f9;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.content {
+  padding: 21px 76px 0 120px;
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(0.625rem, 0.322rem + 1.35vw, 1.438rem);
+}
+
+.left {
+  width: 544px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: 32px;
+  color: #fff;
+  width: 469px;
+}
+
+.subtitleLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.imgBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #000;
+  border-radius: 100%;
+}
+
+.button {
+  width: 171px;
+  height: 40px;
+  border-radius: 24px;
+
+  font-family: var(--font-secondary);
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #000;
+}
+
+.subtitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 11px;
+}
+
+.subtitleRigth {
+  transform: rotate(-3deg);
+}
+
+.raiting {
+  border-radius: 100px;
+  padding: 8px 18px 8px 32px;
+  width: 280px;
+  height: 92px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #0b0d20;
+}
+
+.raitingNumber {
+  display: flex;
+  flex-direction: column;
+}
+
+.place {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  background: linear-gradient(56deg, #2d41f9 0%, #9acbff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.number {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 100%;
+  background: linear-gradient(56deg, #2d41f9 0%, #9acbff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text {
+  font-family: var(--font-secondary);
+  width: 141px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 125%;
+  color: #fff;
+}
+.bgImg {
+  position: absolute;
+  top: 0;
+  left: 468px;
+  z-index: -1;
+}

@@ -1,0 +1,23 @@
+@use "@/shared/assets/styles/media" as *;
+
+.nav {
+  @include laptop {
+    display: none;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: clamp(18.75rem, 12.892rem + 26.04vw, 34.438rem);
+  list-style: none;
+}
+
+.list li {
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}

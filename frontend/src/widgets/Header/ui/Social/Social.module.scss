@@ -1,0 +1,15 @@
+@use "@/shared/assets/styles/media" as *;
+
+.social {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  @include laptop {
+    display: none;
+  }
+}
+
+.social img {
+  cursor: pointer;
+}

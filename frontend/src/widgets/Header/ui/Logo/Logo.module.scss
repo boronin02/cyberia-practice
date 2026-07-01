@@ -1,0 +1,16 @@
+@use "@/shared/assets/styles/media" as *;
+
+.logo {
+  position: relative;
+  width: 174px;
+  height: 32px;
+
+  @include laptop {
+    width: 132px;
+    height: 24px;
+  }
+}
+
+.logoImage {
+  object-fit: contain;
+}

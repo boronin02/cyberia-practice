@@ -1,0 +1,10 @@
+export { default as logo } from "./logo.svg";
+export { default as logoWhite } from "./logoWhite.svg";
+export { default as maxLogoWhite } from "./max-logo-white.svg";
+export { default as maxLogo } from "./max-logo.svg";
+export { default as tgLogoWhite } from "./tg-logo-white.svg";
+export { default as tgLogo } from "./tg-logo.svg";
+export { default as vkLogoWhite } from "./vk-logo-white.svg";
+export { default as vkLogo } from "./vk-logo.svg";
+export { default as burger } from "./burger.svg";
+export { default as closeBurger } from "./closeBurger.svg";

@@ -1,0 +1,12 @@
+@use "@/shared/assets/styles/media" as *;
+
+.burger {
+  display: none;
+
+  @include laptop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  gap: 12px;
+}
