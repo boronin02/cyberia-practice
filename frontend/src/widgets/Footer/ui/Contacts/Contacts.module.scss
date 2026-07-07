@@ -1,0 +1,13 @@
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  font-family: var(--font-secondary);
+}
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}

@@ -20,4 +20,14 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #2d41f9 0%, #9e70ff 45.5%, #36cfff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    transform: scale(1.05);
+  }
 }

@@ -1,1 +1,1 @@
-export { Card, Cards, ColumnLeft, ColumnRight, Projects, Tags } from "./ui";
+export { Card, Cards, ProjectsList, Tags } from "./ui";

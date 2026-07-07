@@ -1,32 +1,15 @@
-import Image from "next/image";
-import { useContext } from "react";
-import { HeaderContext } from "../../lib/HeaderContext";
-import { HeaderTheme } from "../../lib/HeaderTheme";
 import styles from "./Logo.module.scss";
+import Link from "next/link";
+import { ROUTES } from "@/shared/index";
 
-import { logo, logoWhite } from "@/shared/assets/images/header";
+import { LogoIcon } from "@/shared/assets/icons";
 
 export const Logo = () => {
-  const theme = useContext(HeaderContext);
   return (
     <div className={styles.logo}>
-      {theme === HeaderTheme.Dark ? (
-        <Image
-          src={logoWhite}
-          alt="logo"
-          fill
-          sizes="(max-width: 480px) 120px, (max-width: 768px) 150px, 174px"
-          className={styles.logoImage}
-        />
-      ) : (
-        <Image
-          src={logo}
-          alt="logo"
-          fill
-          sizes="(max-width: 480px) 120px, (max-width: 768px) 150px, 174px"
-          className={styles.logoImage}
-        />
-      )}
+      <Link href={ROUTES.HOME} className={styles.logoLink}>
+        <LogoIcon width={173} height={31} />
+      </Link>
     </div>
   );
 };

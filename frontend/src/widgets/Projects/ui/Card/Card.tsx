@@ -2,28 +2,18 @@
 
 import styles from "./Card.module.scss";
 import { isEven } from "@/shared/lib/isEven";
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: {
-    original_url: string;
-    preview_url: string;
-  };
-  is_big: boolean;
-  is_case: boolean;
-}
+import { Project } from "@/entities/projects/model/ProjectsContext";
 
 interface CardProps {
   side: "left" | "right";
   projects: Project[];
   loading: boolean;
+  style?: "home" | "project";
 }
 
-export const Card = ({ side = "left", projects, loading }: CardProps) => {
+export const Card = ({ side = "left", projects, loading, style = "home" }: CardProps) => {
   const columnClass = side === "left" ? styles.columnLeft : styles.columnRight;
-  const marginClass = side === "right" ? styles.marginTop : "";
+  const marginClass = side === "right" && style === "home" ? styles.marginTop : "";
   const filterCondition = side === "left" ? isEven : (i: number) => !isEven(i);
 
   if (loading) {

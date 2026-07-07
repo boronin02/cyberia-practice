@@ -19,11 +19,13 @@ export const Content = () => {
             <div className={styles.textTop}>{content.title}</div>
             <div className={styles.textBottom}>{content.text}</div>
             <div className={styles.subText}>
-              {content.subText}
+              <>
+                {content.subText}
 
-              {content.svg && (
-                <Image src={content.svg} alt="" width={content.width} height={content.height} />
-              )}
+                {content.svg && (
+                  <Image src={content.svg} alt="" width={content.width} height={content.height} />
+                )}
+              </>
             </div>
           </div>
         </div>

@@ -52,7 +52,7 @@ export const Hero = () => {
           priority
         />
       </section>
-      {/* <Logos /> */}
+      <Logos />
     </>
   );
 };

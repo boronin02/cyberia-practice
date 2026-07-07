@@ -1,12 +1,7 @@
 import styles from "./MobileMenu.module.scss";
 import Image from "next/image";
-import {
-  logoWhite,
-  closeBurger,
-  tgLogoWhite,
-  maxLogoWhite,
-  vkLogoWhite,
-} from "@/shared/assets/images/header";
+import { closeBurger } from "@/shared/assets/images/header";
+import { LogoIcon, MaxIcon, TgIcon, VkIcon } from "@/shared/assets/icons";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -18,7 +13,7 @@ export const MobileMenu = ({ isOpen, closeMenu }: MobileMenuProps) => {
     <>
       <div className={`${styles.mobileMenu} ${isOpen ? styles.open : ""}`}>
         <div className={styles.header}>
-          <Image src={logoWhite} alt="logo" />
+          <LogoIcon width={173} height={31} />
           <Image
             src={closeBurger}
             alt="closeBurger"
@@ -41,9 +36,9 @@ export const MobileMenu = ({ isOpen, closeMenu }: MobileMenuProps) => {
           <div className={styles.number}>+7 960 959 18 66</div>
           <div className={styles.mail}>hello@cyberia.studio</div>
           <div className={styles.socials}>
-            <Image src={tgLogoWhite} alt="tgLogoWhite" />
-            <Image src={maxLogoWhite} alt="maxLogoWhite" />
-            <Image src={vkLogoWhite} alt="vkLogoWhite" />
+            <TgIcon />
+            <MaxIcon />
+            <VkIcon />
           </div>
         </div>
         <div className={styles.button}>

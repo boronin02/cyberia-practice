@@ -14,7 +14,8 @@
 .info {
   display: grid;
   grid-template-columns: repeat(3, 363px);
+  justify-content: space-between;
   grid-template-rows: auto;
-  column-gap: 118px;
+  column-gap: auto;
   row-gap: 40px;
 }

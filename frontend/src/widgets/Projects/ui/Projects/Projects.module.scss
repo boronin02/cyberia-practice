@@ -2,10 +2,6 @@
   margin-bottom: 120px;
 }
 
-.columnRight {
-  margin-top: 120px;
-}
-
 .title {
   margin-bottom: 20px;
   font-family: var(--font-primary);
@@ -14,11 +10,4 @@
   line-height: 135%;
   text-align: center;
   color: #0b0d20;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  width: 652px;
-  gap: 24px;
 }

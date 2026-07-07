@@ -1,3 +1,4 @@
+"use client";
 import styles from "./Header.module.scss";
 import { Logo, Nav, Social } from "../index";
 import { useState, useEffect } from "react";
@@ -30,7 +31,7 @@ export const Header = () => {
     };
   }, []);
 
-  const toggleMenu = () => setIsOpen(true);
+  const openMenu = () => setIsOpen(true);
   const closeMenu = () => setIsOpen(false);
 
   return (
@@ -40,11 +41,13 @@ export const Header = () => {
           [styles.dark]: theme === HeaderTheme.Dark,
         })}
       >
-        <Logo />
-        <Nav />
-        <Social />
-        <Burger toggleMenu={toggleMenu} />
-        <MobileMenu isOpen={isOpen} closeMenu={closeMenu} />
+        <div className={styles.container}>
+          <Logo />
+          <Nav />
+          <Social />
+          <Burger toggleMenu={openMenu} />
+          <MobileMenu isOpen={isOpen} closeMenu={closeMenu} />
+        </div>
       </header>
     </HeaderContext.Provider>
   );
