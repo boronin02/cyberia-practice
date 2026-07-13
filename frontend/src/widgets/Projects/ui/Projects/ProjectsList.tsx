@@ -1,5 +1,5 @@
 import { Cards } from "../index";
-import styles from "./Projects.module.scss";
+import styles from "./ProjectsList.module.scss";
 import { Tags } from "../index";
 import { ProjectsProvider } from "@/entities/projects/model/ProjectsContext";
 import { LoadButton } from "../LoadButton";

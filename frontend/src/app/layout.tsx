@@ -1,7 +1,7 @@
 import { Unbounded, Wix_Madefor_Text } from "next/font/google";
 import "@/shared/assets/styles/reset.scss";
 import "@/shared/assets/styles/global.scss";
-import { QueryProvider } from "./providers/queryProvider";
+import { QueryProvider } from "@/shared/providers/queryProvider";
 import { Header } from "@/widgets/Header";
 import { Footer } from "@/widgets/Footer";
 

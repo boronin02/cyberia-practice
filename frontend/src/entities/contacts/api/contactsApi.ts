@@ -1,12 +1,4 @@
-export interface ContactsResponse {
-  message: string;
-  data: Contact[];
-}
-
-export interface Contact {
-  kay: string;
-  value: string;
-}
+import { ContactsResponse } from "./types";
 
 export const fetchContacts = async (): Promise<ContactsResponse> => {
   const response = await fetch("/api/contacts");

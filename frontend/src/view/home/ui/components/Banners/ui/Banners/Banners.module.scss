@@ -1,0 +1,72 @@
+.banners {
+  margin-bottom: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 81px;
+  align-items: center;
+  border-radius: 24px;
+  max-width: 1324px;
+  height: 340px;
+  background: linear-gradient(90deg, #70d0ff 0%, #2d41f9 100%);
+  font-family: var(--font-secondary);
+  color: #fff;
+  position: relative;
+  z-index: 0;
+}
+
+.left {
+  align-self: flex-end;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 120%;
+}
+
+.subtitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 135%;
+  max-width: 375px;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 135%;
+}
+
+.callToAction {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.arrow {
+  position: absolute;
+  left: 746px;
+  top: 255px;
+  transform: rotate(-5deg);
+}
+
+.bgPatch {
+  position: absolute;
+  left: 137px;
+  z-index: -1;
+}

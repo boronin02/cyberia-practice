@@ -26,6 +26,10 @@
   gap: 20px;
 }
 
+.right {
+  align-self: flex-end;
+}
+
 .title {
   font-family: var(--font-primary);
   font-size: 32px;

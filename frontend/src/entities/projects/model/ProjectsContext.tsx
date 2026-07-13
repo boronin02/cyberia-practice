@@ -1,7 +1,8 @@
 "use client";
 
 import { createContext, useContext, ReactNode } from "react";
-import { useInfiniteProjects } from "./useProjects";
+import { useInfiniteProjects } from "../api/projectsApi";
+import { ContextError } from "@/shared/lib/errors";
 
 export interface Project {
   id: number;
@@ -11,8 +12,6 @@ export interface Project {
     original_url: string;
     preview_url: string;
   };
-  is_big: boolean;
-  is_case: boolean;
 }
 
 interface ProjectsContextType {
@@ -50,7 +49,7 @@ export const useProjectsContext = () => {
   const context = useContext(ProjectsContext);
 
   if (context === undefined) {
-    throw new Error();
+    throw new ContextError("useProjectsContext must be used within ProjectsProvider");
   }
 
   return context;
