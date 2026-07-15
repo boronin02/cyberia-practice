@@ -1,5 +1,5 @@
 "use client";
-import { useContacts } from "@/entities/contacts/model/useContacts";
+import { useContacts } from "@/entities/contacts/api/contactsApi";
 import { Contacts } from "../Contacts";
 import { Logo } from "../Logo";
 import { Nav } from "../Nav";
@@ -8,10 +8,6 @@ import { Container } from "@/shared/ui/Container";
 
 export const Footer = () => {
   const { data, isError } = useContacts();
-
-  if (isError) {
-    <div>Ошибка загрузки контактов</div>;
-  }
 
   const allContacts = data?.data || [];
 
@@ -25,7 +21,11 @@ export const Footer = () => {
         <div className={styles.footerTop}>
           <Logo />
           <Nav />
-          <Contacts contacts={filteredContacts} />
+          {isError ? (
+            <div>Ошибка загрузки контактов</div>
+          ) : (
+            <Contacts contacts={filteredContacts} />
+          )}
         </div>
         <div className={styles.footerBottom}>
           <div className={styles.left}>
