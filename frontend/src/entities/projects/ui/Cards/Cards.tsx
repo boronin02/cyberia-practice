@@ -1,6 +1,7 @@
 "use client";
 
-import { Card } from "../index";
+import { Card } from "../../../../widgets/Projects/ui/index";
+import { SkeletonCard } from "../SkeletonCards";
 import styles from "./Cards.module.scss";
 import { useProjectsContext } from "@/entities/projects/model/ProjectsContext";
 
@@ -14,8 +15,8 @@ export const Cards = ({ style = "home" }: CardsProps) => {
   if (loading) {
     return (
       <div className={styles.wrapper}>
-        <Card side="left" projects={[]} loading={true} />
-        <Card side="right" projects={[]} loading={true} />
+        <SkeletonCard />
+        <SkeletonCard />
       </div>
     );
   }

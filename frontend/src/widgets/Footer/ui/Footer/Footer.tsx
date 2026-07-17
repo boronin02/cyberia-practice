@@ -1,17 +1,21 @@
 "use client";
-import { useContacts } from "@/entities/contacts/api/contactsApi";
 import { Contacts } from "../Contacts";
 import { Logo } from "../Logo";
 import { Nav } from "../Nav";
 import styles from "./Footer.module.scss";
 import { Container } from "@/shared/ui/Container";
 
-export const Footer = () => {
-  const { data, isError } = useContacts();
+interface Contact {
+  kay: string;
+  value: string;
+}
 
-  const allContacts = data?.data || [];
+interface FooterProps {
+  contacts: Contact[];
+}
 
-  const filteredContacts = allContacts.filter((contact) => {
+export const Footer = ({ contacts }: FooterProps) => {
+  const filteredContacts = contacts.filter((contact) => {
     return contact.kay === "phone" || contact.kay === "email" || contact.kay === "address";
   });
 
@@ -21,11 +25,7 @@ export const Footer = () => {
         <div className={styles.footerTop}>
           <Logo />
           <Nav />
-          {isError ? (
-            <div>Ошибка загрузки контактов</div>
-          ) : (
-            <Contacts contacts={filteredContacts} />
-          )}
+          <Contacts contacts={filteredContacts} />
         </div>
         <div className={styles.footerBottom}>
           <div className={styles.left}>

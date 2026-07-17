@@ -3,16 +3,7 @@
 import { createContext, useContext, ReactNode } from "react";
 import { useInfiniteProjects } from "../api/projectsApi";
 import { ContextError } from "@/shared/lib/errors";
-
-export interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: {
-    original_url: string;
-    preview_url: string;
-  };
-}
+import { Project } from "../api/types";
 
 interface ProjectsContextType {
   projects: Project[];

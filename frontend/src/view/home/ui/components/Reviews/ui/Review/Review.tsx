@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import styles from "./Reviews.module.scss";
+import styles from "./Review.module.scss";
 import { document } from "@/shared/assets/images/reviews";
-import { ReviewsResource } from "@/entities/trustUs/api/types";
+import { ReviewsResource } from "@/entities/reviews/api/types";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -12,17 +12,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-interface ReviewsProps {
+interface ReviewProps {
   reviews: ReviewsResource[];
 }
 
-export const Reviews = ({ reviews }: ReviewsProps) => {
+export const Review = ({ reviews }: ReviewProps) => {
   if (!reviews || reviews.length === 0) {
-    return <div className={styles.reviews}>Нет отзывов</div>;
+    return <div className={styles.review}>Нет отзывов</div>;
   }
 
   return (
-    <section className={styles.reviewsWrapper}>
+    <section className={styles.reviewWrapper}>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={0}

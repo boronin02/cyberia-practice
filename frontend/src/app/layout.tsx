@@ -4,6 +4,8 @@ import "@/shared/assets/styles/global.scss";
 import { QueryProvider } from "@/shared/providers/queryProvider";
 import { Header } from "@/widgets/Header";
 import { Footer } from "@/widgets/Footer";
+import { fetchContacts } from "@/entities/contacts/api/contactsApi";
+import clsx from "clsx";
 
 const unbounded = Unbounded({
   subsets: ["cyrillic"],
@@ -15,14 +17,21 @@ const wixMadeforText = Wix_Madefor_Text({
   variable: "--font-wixMadeforText",
 });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata = {
+  title: process.env.NEXT_PUBLIC_APP_NAME,
+};
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const contactsData = await fetchContacts();
+  const contacts = contactsData.data || [];
+
   return (
-    <html lang="ru" className={`${unbounded.variable} ${wixMadeforText.variable}`}>
+    <html lang="ru" className={clsx(unbounded.variable, wixMadeforText.variable)}>
       <body>
         <QueryProvider>
           <Header />
           <main>{children}</main>
-          <Footer />
+          <Footer contacts={contacts} />
         </QueryProvider>
       </body>
     </html>

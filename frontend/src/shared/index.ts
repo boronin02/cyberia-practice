@@ -1,1 +1,1 @@
-export { ROUTES } from "./constants";
+export { ROUTES } from "./lib/routes";

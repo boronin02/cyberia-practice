@@ -1,4 +1,3 @@
-"use client";
 import { api } from "@/shared/api/axiosInstance";
 import { ReviewsResponse } from "./types";
 import { useInfiniteQuery } from "@tanstack/react-query";

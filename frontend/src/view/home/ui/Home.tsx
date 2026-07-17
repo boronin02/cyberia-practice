@@ -1,17 +1,23 @@
 import { Container } from "@/shared/ui/Container";
-import { Awards, TrustUs } from "./components";
+import { Awards } from "./components";
 import { Hero } from "./components";
 import { ProjectsList } from "@/widgets/Projects";
 import { Banners } from "./components/Banners";
+import { Reviews } from "./components/Reviews";
+import { ReviewsResource } from "@/entities/reviews/api/types";
 
-export const Home = () => {
+interface HomeProps {
+  reviews: ReviewsResource[];
+}
+
+export const Home = ({ reviews }: HomeProps) => {
   return (
     <>
       <Container>
         <Hero />
         <Awards />
         <ProjectsList showLoadButton={true} style="home" />
-        <TrustUs />
+        <Reviews reviews={reviews} />
         <Banners />
       </Container>
     </>

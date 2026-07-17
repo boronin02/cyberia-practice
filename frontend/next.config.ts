@@ -1,5 +1,15 @@
+const hostnames = process.env.NEXT_PUBLIC_IMAGE_HOSTNAMES?.split(",") || ["localhost"];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: hostnames.map((hostname) => ({
+      protocol: process.env.NEXT_PUBLIC_IMAGE_PROTOCOL || "http",
+      hostname: hostname.trim(),
+      port: process.env.NEXT_PUBLIC_IMAGE_PORT || "",
+      pathname: "/**",
+    })),
+  },
   async rewrites() {
     return [
       {
@@ -8,17 +18,6 @@ const nextConfig = {
       },
     ];
   },
-
-  images: {
-    remotePatterns: [
-      {
-        protocol: "http",
-        hostname: "localhost",
-        port: "8000",
-        pathname: "/**",
-      },
-    ],
-  },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

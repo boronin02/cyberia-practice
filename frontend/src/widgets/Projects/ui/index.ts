@@ -1,4 +1,4 @@
-export { Card } from "./Card";
-export { Cards } from "./Cards";
-export { ProjectsList } from "./Projects";
-export { Tags } from "./Tags";
+export { Card } from "../../../entities/projects/ui/Card";
+export { Cards } from "../../../entities/projects/ui/Cards";
+export { ProjectsList } from "./ProjectsList";
+export { Tags } from "../../../entities/projects/ui/Tags";
